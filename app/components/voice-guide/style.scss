@@ -1,0 +1,557 @@
+// Voice Guide
+
+/* ------------------- TEXT -------------------- */
+
+p, li {
+  font-size: 1.1em;
+  line-height: 1.7em;
+  letter-spacing: .25px;
+}
+
+li {
+  line-height: 1.325em;
+  margin-bottom: .5em;
+  word-wrap: break-word; /* added this for indented li's breaking mobile */
+}
+
+p {
+  margin-bottom: 1.3em;
+}
+
+.half p, .words p, .blacklist p {
+  line-height: 1.4em;
+}
+
+
+h1 {
+  font-family: "futura-pt";
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 1.7em;
+}
+
+h2, h3 {
+  font-family: "freight-bold";
+  letter-spacing: .75px;
+  
+}
+
+h2 {
+   font-size: 1.6em;
+   margin: 2.5em 0 .75em 0;
+}
+
+h3 {
+  font-size: 1.15em;
+  margin: 2em 0 .25em 0;
+}
+
+
+.section-content ul ul {
+  padding-left: 3em;
+}
+
+.section-content > :first-child, .words > :first-child {
+  margin-top: 0 !important;
+}
+
+.section-intro {
+  font-family: "freight-italic";
+  letter-spacing: .2px;
+}
+
+#page-title {
+  font-family: "futura-pt";
+  font-weight: 400;
+}
+
+ul {
+  margin-bottom: 2.1em;
+}
+
+
+/*nav links*/
+
+header a, .section-nav a {
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+  font-family: "futura-pt";
+  font-weight: 700;
+  letter-spacing: .5px;
+  font-size: .75em;
+}
+
+header a:hover, .section-nav a:hover {
+  color: darkgray;
+}
+
+.section-nav li {
+  list-style-type: none;
+  font-size: .85em;
+  margin: 2% 0;
+  color: black;
+  text-decoration: none;
+  
+}
+
+/*body links*/
+
+.section-content a {
+  font-family: freight-bold;
+  color: #1c5d7e;
+  text-decoration: underline;
+}
+
+.section-content a:hover {
+  color: #334b5b;
+}
+
+.section-content a:visited {
+  color: #6f97ac;
+}
+
+
+  /* ----------------------------------- LAYOUT ---------------------------- */
+
+/* --------------------- Header --------------------------- */
+
+header {
+  margin-bottom: 12em;
+  height: 64px;
+  line-height: 64px;
+  background-color: white;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px; /* needed to add this to stay on mobile viewport */
+  box-shadow: 0 0 2px rgba(6,8,8,0.15);
+  z-index: 3;
+  transition: top 0.2s ease-in-out;
+}
+
+header.slide-down {
+  position: relative;
+}
+
+header.nav-up {
+  top: -64px;
+}
+
+.logo {
+  height: 32px;
+  width: 101px;
+  display: inline-block;
+  margin: 12px 0 0 32px;
+  vertical-align: middle;
+  float: left;
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+}
+
+/*Distribute sub nav*/
+#sub-nav {
+    text-align: justify;
+    font-size:0;
+    width: 84%;
+    margin: .3rem auto 0 auto;
+    max-width: 1100px;
+}
+#sub-nav:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+}
+#sub-nav li {
+    display: inline-block;
+    font-size:1rem;
+}
+#sub-nav a:link {
+    display: block;
+    padding: 1rem 0;
+}
+
+/* Mobile navigation */
+.nav-slide {
+	display: none;
+}
+
+header .hamburger {
+	margin-top: 4px;
+	display: none;
+}
+
+.hamburger {
+  display: block;
+  text-indent: -99999px;
+  overflow: hidden;
+  width: 19px;
+  height: 17px;
+  background: url('/images/hamburger.png') no-repeat 0 0;
+  cursor: pointer;
+  float: right;
+}
+
+.hamburger.selected,
+.hamburger:hover,
+.hamburger:focus,
+.hamburger:active
+{
+  background-position: 0 -17px;
+}
+
+.headerSlideInDown {
+  opacity: 0;
+  animation: headerSlideInDown 0.25s ease-in-out 1s forwards;
+}
+
+@-webkit-keyframes headerSlideInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-62px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@-moz-keyframes headerSlideInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-62px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes headerSlideInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-62px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out .5s forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ---------------------------- Content ------------------------ */
+
+#hero-image {
+  height: 75vh;
+  line-height: 75vh;
+  text-align: center;
+  vertical-align: middle;
+  text-transform: uppercase;
+  background-color: #c6c6c6;
+  background-image: url("https://res.cloudinary.com/ahalogy/image/upload/v1433343469/voice_hero_uelcga.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+#hero-image h1 {
+  font-family: "futura-pt";
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  font-size: 3rem;
+  color: white;
+  border: 0;
+}
+
+.content {
+  width: 84%;
+  margin: 0 auto;
+  max-width: 1100px;
+  padding-top: 62px;
+}
+
+.section {
+  width: 100%;
+  margin-bottom: 13em;
+  position: relative;
+  padding-top: 50px;
+  border-top: 1.5px #a5a5a5 solid;
+}
+
+.section:first-child {
+  border-top: 0;
+}
+
+.section-title {
+  width: 33%;
+  float: left;
+  padding-right: 2%;
+}
+
+.section-content {
+  width: 66%;
+  float: right;
+}
+
+
+
+/*.words {
+  -webkit-column-count: 2; 
+  -moz-column-count: 2;
+  column-count: 2;
+  -webkit-column-gap: 40px;
+  -moz-column-gap: 40px;
+  column-gap: 40px;
+} */
+
+.attribute {
+/*  margin: 1% 0px;*/
+  width: 100%;
+/*  border: 3px black solid;*/
+  float: left;
+}
+
+.half {
+  width: 50%;
+  float: left;
+/*  background: red;*/
+  padding-right: 2.5em;
+}
+
+#right {
+  padding-right: 0;
+  padding-left: 2.5em;
+}
+
+.attribute-icon {
+  width: 1.25em;
+  height: auto;
+  float: left;
+}
+
+.attribute-text {
+  padding-left: 2em;
+}
+
+.would-list {
+  list-style-image: url('http://res.cloudinary.com/ahalogy/image/upload/v1431549078/check_tiny_s5bsl1.svg');
+}
+
+.wouldnt-list {
+  list-style-image: url('http://res.cloudinary.com/ahalogy/image/upload/v1431548975/x_tiny_xqilbu.svg');
+}
+
+.sub-section {
+  margin-bottom: 10em;
+}
+
+.stuck {
+  position: fixed;
+  z-index: 1000;
+}
+
+.scrollmagic-pin-spacer {
+  float: left;
+}
+
+/* ---------------------------- DEVICES ------------------------ */
+
+@media screen and (max-width: 1420px) {
+  #sub-nav {
+    width: auto;
+    text-align: left;
+    margin-left: 2rem;
+  }
+  
+  #sub-nav li {
+    margin-right: 2rem;
+  }
+  
+  #sub-nav li:first-child {
+    margin-left: 2rem;
+  }
+  
+  #sub-nav li:last-child {
+    margin-right: 0;
+  }
+}
+/*Tablet*/
+
+@media screen and (max-width: 925px) {
+  .section-title {
+    float: none;
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .section-content {
+    float: none;
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .section-nav {
+    display: none;
+  }
+  
+  .section {
+    border-top: none;
+    
+  }
+  
+  h1 {
+    font-size: 1.75em;
+    margin-bottom: 1em;
+    border-bottom: 1.5px #a5a5a5 solid;
+    padding-bottom: .25em;
+    margin-bottom: 2em;
+  }
+  
+  #hero-image {
+    height: 100vh;
+    line-height: 100vh;
+  }
+  
+  #hero-image h1 {
+    font-size: 1.75em;
+  }
+  
+}
+
+/* Mobile */
+
+@media screen and (max-width: 860px) {
+  .half, #right {
+    float: none;
+    width: 100%;
+    padding: 0;
+    margin-right: 0;
+    margin-left: 0;
+  }
+  
+  .content {
+    width: 100%;
+  }
+  
+  ol,ul {
+    padding-left: 1.25rem;
+  }
+  
+  .section-content ul ul {
+    padding-left: 1.25rem;
+  }
+  
+  .section-title,
+  .section-content {
+    float: none;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+  
+  .section {
+    margin-bottom: 4em;
+  }
+  
+  .logo {
+    margin-left: 16px;
+  }
+  
+  header {
+    margin-bottom: 0;
+  }
+  
+  header .hamburger {
+  	display: inline-block;
+    margin-top: 24px;
+    margin-right: 16px;
+  }
+
+  header #sub-nav {
+    display: none;
+  }
+  
+  .nav-slide {
+    display: none;
+    overflow: visible;
+    text-align: center;
+    background: white;
+    position: fixed;
+    top: 62px;
+    right: 0;
+    left: 0;
+    z-index: 4;
+    box-shadow: 0 0 2px rgba(6,8,8,0.15);
+  }
+  
+  .nav-slide-list,
+  .nav-slide-list li {
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+
+  .nav-slide-list-link {
+    text-decoration: none;
+    color: #2d2d2d;
+    text-transform: uppercase;
+    font-family: "futura-pt";
+    font-weight: 700;
+    letter-spacing: .5px;
+    font-size: .75em;
+    display: block;
+    padding: 1em;
+  }
+
+  .nav-slide-list-item {
+    display: block;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .nav-slide-list-item:last-child {
+    border-bottom: none;
+  }
+
+  .nav-slide-list-link:hover,
+  .nav-slide-list-link:focus,
+  .nav-slide-list-link:active
+  {
+    background: #1b5d7e;
+    color: white;
+    text-decoration: none;
+  }
+}

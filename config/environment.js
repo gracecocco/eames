@@ -12,10 +12,20 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       }
     },
+    typekit: {
+      kitId: 'fqj1hjt'
+    },
 
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    
+    contentSecurityPolicy: {
+      'connect-src': "'self' api.mixpanel.com hn.inspectlet.com *.intercom.io wss://*.intercom.io",
+      'img-src': "*",
+      'script-src': "'self' use.typekit.net",
+      'style-src': "'self' 'unsafe-inline' use.typekit.net"
     }
   };
 

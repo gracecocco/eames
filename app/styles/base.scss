@@ -1,0 +1,38 @@
+// Reset
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 100%;
+  font-family: "freight-text-pro";
+}
+
+.u-clearfix {
+  zoom:1;
+}
+
+.u-clearfix:before,
+.u-clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+
+.u-clearfix:after {
+  clear: both;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -webkit-margin-before: 0;
+  padding: 0;
+  margin: 0;
+}
